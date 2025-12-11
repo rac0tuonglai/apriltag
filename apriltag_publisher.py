@@ -12,7 +12,7 @@ class AprilTagPublisher(Node):
 
         self.subscription = self.create_subscription(
             AprilTagDetectionArray,
-            '/apriltag_detections',  # adjust if your topic name is different
+            '/apriltag_detections', 
             self.detections_callback,
             10
         )
@@ -31,7 +31,6 @@ class AprilTagPublisher(Node):
 
         det = msg.detections[0]
 
-        # Tag ID extraction
         try:
             tag_id = int(det.id[0])
         except Exception:
